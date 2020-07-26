@@ -59,11 +59,10 @@ const actions = {
             throw new Error(e.response.data);
         }
     },
-    async logout({commit, state, dispatch}) {
+    async logout({commit, state}) {
         try {
             await axios.post('/users/logout', state.user);
             commit('clearAuthData');
-            dispatch('resetDates');
         } catch(e) {
             console.error(e);
         }
